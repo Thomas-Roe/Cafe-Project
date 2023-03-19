@@ -24,8 +24,7 @@ public class Read {
 			rs = statement.executeQuery(query);
 			while(rs.next()) {
 				System.out.println("ID: " + rs.getInt("id")
-				+ "\tMeal: " + rs.getString("meal")
-				+ "\tDrink: " + rs.getString("drink"));
+				+ "\tMeal: " + rs.getString("meal"));
 			}
 		} catch (SQLException e) {
 			System.out.println("Bad query.");

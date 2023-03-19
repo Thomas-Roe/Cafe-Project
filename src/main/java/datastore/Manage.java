@@ -8,23 +8,21 @@ public class Manage {
 		boolean created = false;
 		char option;
 		Scanner userInput = new Scanner(System.in);
-		String orderID = userInput.nextLine();
-		userInput.close();
 		
 		while(true) {
-			System.out.println("What would you like to do?\n\n");
+			System.out.println("What would you like to do?");
 			if(created == false) {	// Option C is made unavailable after it has been used
-				System.out.println("C - Create database and table\n");
+				System.out.println("C - Create database and table");
 			}
-			System.out.println("F - Fetch a specific order\n");
-			System.out.println("R - Read the whole table\n");
-			System.out.println("A - Add a new order to the table\n");
-			System.out.println("U - Update table\n");
-			System.out.println("D - Delete order from table\n\n");
-			System.out.println("Q - Quit\n\n");
+			System.out.println("F - Fetch a specific order");
+			System.out.println("R - Read the whole table");
+			System.out.println("A - Add a new order to the table");
+			System.out.println("U - Update table");
+			System.out.println("N - Nuke orders");
+			System.out.println("D - Delete order from table");
+			System.out.println("Q - Quit");
 			
 			option = userInput.nextLine().trim().toUpperCase().charAt(0);
-			var id = orderID;
 			if(option == 'Q')
 				break;
 			if(option == 'C') {
@@ -36,8 +34,8 @@ public class Manage {
 				}
 				continue;
 			}
-			if(option == 'F' && id != null) {
-				Fetch.proceed(id);
+			if(option == 'F') {
+				Fetch.proceed(userInput);
 				continue;
 			}
 			if(option == 'R') {
@@ -49,7 +47,15 @@ public class Manage {
 				continue;
 			}
 			if(option == 'D') {
-				Delete.proceed();
+				Delete.proceed(userInput);
+				continue;
+			}
+			if(option == 'A') {
+				Add.proceed(userInput);
+				continue;
+			}
+			if(option == 'N') {
+				Nuke.proceed();
 				continue;
 			}
 		}

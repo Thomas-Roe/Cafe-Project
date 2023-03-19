@@ -1,30 +1,31 @@
 package datastore;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-//import java.sql.ResultSet;
 import java.util.Scanner;
 
-public class Delete {
+public class Add {
 	static Connection conn;
 	static Statement statement;
 
+	
 	public static void proceed(Scanner userInput) {
-		System.out.println("Enter order id: ");
-		String id = userInput.nextLine();
+		String data;
+		System.out.println("Enter meal name: ");
+		String meal = userInput.nextLine();
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/", "root", "Trumpet-card-piano");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "Trumpet-card-piano");
 			statement = conn.createStatement();
 		} catch (SQLException e) {
-			System.out.println("Connection failed.");
+			System.out.println("Connection 1 failed.");
 			e.printStackTrace();
 		}
 		try {
-			statement.executeUpdate("DELETE FROM cafe.orders WHERE id="+id);
+			data = "INSERT INTO cafe.orders (Meal, Completed) VALUES ('" + meal + "', 0)";
+			statement.executeUpdate(data);
 		} catch (SQLException e) {
-			System.out.println("Deletion failed.");
+			System.out.println("Insertion failed.");
 			e.printStackTrace();
 		}
 	}

@@ -41,7 +41,6 @@ public class Create {
 		newTable = "CREATE TABLE orders " +
 				"(id INTEGER not NULL AUTO_INCREMENT, " +
 				" Meal VARCHAR(255), " +
-				" Drink TEXT, " +
 				" Completed BOOL, " +
 				" PRIMARY KEY ( id ))";
 		try {
@@ -51,15 +50,13 @@ public class Create {
 			e.printStackTrace();
 		}
 		try {
-			data = "INSERT INTO orders VALUES (1, 'Burger', 'Coke', 0)";
+			data = "INSERT INTO orders VALUES (1, 'Burger', 0)";
 			statement.executeUpdate(data);
-			data = "INSERT INTO orders VALUES (2, 'Burger', 'Fanta', 0)";
+			data = "INSERT INTO orders VALUES (2, 'Burger', 0)";
 			statement.executeUpdate(data);
 		} catch (SQLException e) {
 			System.out.println("Insertion failed.");
 			e.printStackTrace();
 		}
-		
-		
 	}
 }

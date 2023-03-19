@@ -4,19 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.ResultSet;
+//import java.sql.ResultSet;
 import java.util.Scanner;
 
-public class Fetch {
+public class Nuke {
 	static Connection conn;
 	static Statement statement;
-	
-	public static void proceed(Scanner userInput) {
-		System.out.println("Enter your id\n\n");
-		String id = userInput.nextLine();
-		String query = "SELECT * FROM cafe.orders\r\n"
-				+ "WHERE id = "+id;
-		ResultSet rs;
+
+	public static void proceed() {
 		try {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/", "root", "Trumpet-card-piano");
 			statement = conn.createStatement();
@@ -25,15 +20,10 @@ public class Fetch {
 			e.printStackTrace();
 		}
 		try {
-			rs = statement.executeQuery(query);
-			while(rs.next()) {
-				System.out.println("ID: " + rs.getInt("id")
-				+ "\tMeal: " + rs.getString("meal"));
-			}
+			statement.executeUpdate("DELETE FROM cafe.orders");
 		} catch (SQLException e) {
-			System.out.println("Bad query.");
+			System.out.println("Deletion failed.");
 			e.printStackTrace();
 		}
 	}
-
 }
