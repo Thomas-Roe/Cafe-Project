@@ -8,6 +8,8 @@ public class Manage {
 		boolean created = false;
 		char option;
 		Scanner userInput = new Scanner(System.in);
+		String orderID = userInput.nextLine();
+		userInput.close();
 		
 		while(true) {
 			System.out.println("What would you like to do?\n\n");
@@ -22,7 +24,7 @@ public class Manage {
 			System.out.println("Q - Quit\n\n");
 			
 			option = userInput.nextLine().trim().toUpperCase().charAt(0);
-
+			var id = orderID;
 			if(option == 'Q')
 				break;
 			if(option == 'C') {
@@ -34,8 +36,8 @@ public class Manage {
 				}
 				continue;
 			}
-			if(option == 'F') {
-				Fetch.proceed();
+			if(option == 'F' && id != null) {
+				Fetch.proceed(id);
 				continue;
 			}
 			if(option == 'R') {
@@ -51,11 +53,6 @@ public class Manage {
 				continue;
 			}
 		}
-	}
-
-	private static Scanner parseInt(Scanner orderID) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

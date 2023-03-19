@@ -11,10 +11,12 @@ public class Fetch {
 	static Connection conn;
 	static Statement statement;
 	
-	public static void proceed() {
+	public static void proceed(String id) {
+		String s = id;
+		int o = Integer.valueOf(s);
 		System.out.println("Enter your id\n\n");
 		String query = "SELECT * FROM cafe.orders\r\n"
-				+ "WHERE id = "+id;
+				+ "WHERE id = "+o;
 		ResultSet rs;
 		try {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cafe", "root", "Trumpet-card-piano");
@@ -36,8 +38,4 @@ public class Fetch {
 		}
 	}
 
-	private static String parseInt(Scanner id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
