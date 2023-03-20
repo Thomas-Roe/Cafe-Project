@@ -19,6 +19,7 @@ public class Manage {
 			System.out.println("A - Add a new order to the table");
 			System.out.println("N - Nuke orders");
 			System.out.println("D - Delete order from table");
+			System.out.println("U - Update an order to be complete");
 			System.out.println("Q - Quit");
 			
 			option = userInput.nextLine().trim().toUpperCase().charAt(0);
@@ -51,6 +52,10 @@ public class Manage {
 			}
 			if(option == 'N') {
 				Nuke.proceed();
+				continue;
+			}
+			if(option == 'U') {
+				Update.proceed(userInput);
 				continue;
 			}
 		}
