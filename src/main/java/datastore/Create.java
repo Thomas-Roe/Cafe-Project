@@ -16,7 +16,7 @@ public class Create {
 		String newTable;
 		
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "Trumpet-card-piano");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "");
 			statement = conn.createStatement();
 		} catch (SQLException e) {
 			System.out.println("Connection 1 failed.");
@@ -31,7 +31,7 @@ public class Create {
 			e.printStackTrace();
 		}
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cafe", "root", "Trumpet-card-piano");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cafe", "root", "");
 			statement = conn.createStatement();
 		} catch (SQLException e) {
 			System.out.println("Connection 2 failed.");
@@ -47,15 +47,6 @@ public class Create {
 			statement.executeUpdate(newTable);
 		} catch (SQLException e) {
 			System.out.println("Table creation failed.");
-			e.printStackTrace();
-		}
-		try {
-			data = "INSERT INTO orders VALUES (1, 'Burger', 0)";
-			statement.executeUpdate(data);
-			data = "INSERT INTO orders VALUES (2, 'Burger', 0)";
-			statement.executeUpdate(data);
-		} catch (SQLException e) {
-			System.out.println("Insertion failed.");
 			e.printStackTrace();
 		}
 	}

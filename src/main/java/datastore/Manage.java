@@ -17,7 +17,6 @@ public class Manage {
 			System.out.println("F - Fetch a specific order");
 			System.out.println("R - Read the whole table");
 			System.out.println("A - Add a new order to the table");
-			System.out.println("U - Update table");
 			System.out.println("N - Nuke orders");
 			System.out.println("D - Delete order from table");
 			System.out.println("Q - Quit");
@@ -40,10 +39,6 @@ public class Manage {
 			}
 			if(option == 'R') {
 				Read.proceed();
-				continue;
-			}
-			if(option == 'U') {
-				Update.proceed();
 				continue;
 			}
 			if(option == 'D') {

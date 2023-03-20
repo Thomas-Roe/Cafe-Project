@@ -15,7 +15,7 @@ public class Delete {
 		System.out.println("Enter order id: ");
 		String id = userInput.nextLine();
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/", "root", "Trumpet-card-piano");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/", "root", "");
 			statement = conn.createStatement();
 		} catch (SQLException e) {
 			System.out.println("Connection failed.");

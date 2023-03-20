@@ -14,7 +14,7 @@ public class Read {
 		String query = "SELECT * FROM cafe.orders\r\n";
 		ResultSet rs;
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cafe", "root", "Trumpet-card-piano");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cafe", "root", "");
 			statement = conn.createStatement();
 		} catch (SQLException e) {
 			System.out.println("Connection failed.");
